@@ -28,3 +28,32 @@ var gameInfo = function(){
 }
 
 // YOUR CODE HERE
+function team(name, rank, wins, losses) {
+  this.name = name;
+  this.rank = rank;
+  this.wins = wins;
+  this.losses = losses;
+}
+
+var teamName = function(array){
+ var teams = [];
+ var uniqueTeams = [];
+ for (i = 0; i < array.length; i++) {
+   teams.push(array[i].home_team);
+   teams.push(array[i].away_team);
+ }
+ for ( var i in teams ){
+   if( uniqueTeams.indexOf(teams[i]) === -1){
+     uniqueTeams.push(teams[i]);
+   }
+ }
+ teams = [];
+ for (i = 0; i < uniqueTeams.length; i++) {
+   teams.push(new team(name = uniqueTeams[i]));
+ }
+ console.log(teams);
+};
+
+var teamObjects = teamName(gameInfo());
+
+console.log(teamObjects);
